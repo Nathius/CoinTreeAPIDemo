@@ -1,4 +1,7 @@
 ﻿$(document).ready(function () {
+    //load in the previous watch price
+    loadWatchPriceFromCookieStorage();
+
     //load the previous app run prices and display as current
     loadPricesFromCookieStorage();
 
@@ -9,7 +12,7 @@
     //wait and refresh the prices every 30 seconds
     setInterval(function () {
         getPrice();
-    }, 30000);
+    }, 3000);
 });
 
 function loadPricesFromCookieStorage()
@@ -28,6 +31,15 @@ function loadPricesFromCookieStorage()
     }
 }
 
+function loadWatchPriceFromCookieStorage()
+{
+    var watchPrice = getCookie('watchPrice');
+    if (watchPrice && watchPrice != null && watchPrice != '' && watchPrice != 0) {
+        var currentWatchPrice = document.getElementById("currentWatchPrice");
+        currentWatchPrice.innerHTML = watchPrice;
+    }
+}
+
 function setWatchPrice()
 {
     //find watch price input
@@ -35,7 +47,7 @@ function setWatchPrice()
     var currentWatchPrice = document.getElementById("currentWatchPrice");
 
     currentWatchPrice.innerHTML = watchPriceInput.value;
-
+    setCookie('watchPrice', watchPriceInput.value, 7);
 
     //copy text to watch price value
 }

@@ -72,6 +72,22 @@ function updatePrice(cookieName, newPrice, oldDisplayElement, newDisplayElement,
     movementDisplayElement.innerHTML = getPriceMovement(oldPrice, newPrice);
 
     //watchDisplayElement
+    var watchPrice = document.getElementById("currentWatchPrice").innerHTML;
+
+    //if a valid watch price is provided
+    if (watchPrice && watchPrice != null && watchPrice != '' && watchPrice != 0 && watchPrice > 0)
+    {
+        //and that watch price is exceeded by the newPrice
+        if(newPrice > watchPrice)
+        {
+            //update the watch display element
+            watchDisplayElement.innerHTML = 'BUY!?';
+        }
+        else {
+            //clear the watch display element
+            watchDisplayElement.innerHTML = '';
+        }
+    }
 }
 
 function getPriceMovement(oldPrice, newPrice)
