@@ -21,6 +21,17 @@ function getPrice(callback) {
 
         if (response.Success === true) {
             alert('loaded');
+
+            //parse out the ask and bid price
+            var ask = response.Data.Ask;
+            var bid = response.Data.Bid;
+
+            //update the display with the current ask and bid price
+            var currentAskPrice = document.getElementById("currentAskPrice");
+            currentAskPrice.innerHTML = ask;
+
+            var currentBidPrice = document.getElementById("currentBidPrice");
+            currentBidPrice.innerHTML = bid;
         }
         else {
             alert('error');
