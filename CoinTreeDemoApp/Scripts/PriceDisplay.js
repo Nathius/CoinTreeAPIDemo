@@ -37,6 +37,10 @@ function getPrice() {
 
 function updateAskPrice(newPrice)
 {
+    //store current ask price in cookie
+    setCookie('askPrice', newPrice, 7);
+
+    //update diaplay of ask price
     var currentAskPrice = document.getElementById("currentAskPrice");
     var previousAskPrice = document.getElementById("previousAskPrice");
 
@@ -56,6 +60,9 @@ function updateAskPrice(newPrice)
 
 function updateBidPrice(newPrice)
 {
+    //store current bid price in cookie
+    setCookie('bidPrice', newPrice, 7);
+
     var currentBidPrice = document.getElementById("currentBidPrice");
     var previousBidPrice = document.getElementById("previousBidPrice");
 
