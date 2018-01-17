@@ -71,11 +71,14 @@ function updatePrice(cookieName, newPrice, oldDisplayElement, newDisplayElement,
     //calculate and display the movement in ask price
     var movement = getPriceMovement(oldPrice, newPrice);
     movementDisplayElement.children[0].innerHTML = movement;
-    if (movement > 0){
+    if (movement > 0){ //price rise
         movementDisplayElement.children[1].className = 'glyphicon glyphicon-triangle-top';
     }
-    else {
+    else if (movement < 0){ //price fall
         movementDisplayElement.children[1].className = 'glyphicon glyphicon-triangle-bottom';
+    }
+    else { //stagnant
+        movementDisplayElement.children[1].className = 'glyphicon glyphicon-minus';
     }
 
     //watchDisplayElement
