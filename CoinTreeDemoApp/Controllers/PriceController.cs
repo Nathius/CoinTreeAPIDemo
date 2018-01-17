@@ -1,22 +1,26 @@
 ﻿using CoinTreeDemoApp.CoinTreeApi;
 using CoinTreeDemoApp.CoinTreeApi.Models;
+using CoinTreeDemoApp.Models;
 using System.Web.Http;
 
 namespace CoinTreeDemoApp.Controllers
 {
-    public class CoinTreeApiController : ApiController
+    public class PriceController : ApiController
     {
         //controller for grabbing data from coiun tree
 
 
-        [Route("GetCurrentPrice")]
         [AllowAnonymous, OverrideAuthorization]
         [HttpGet]
-        public PriceData GetCurrentPrice()
+        public Payload GetCurrentPrice()
         {
             var priceData = CoinTreeDataFetcher.GetCurrentPrice();
 
-            return priceData;
+            return new Payload
+            {
+                Success = true,
+                Data = priceData
+            };
 
         }
 
