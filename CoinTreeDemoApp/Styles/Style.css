@@ -12,3 +12,15 @@
 .priceGrid td{
     padding: 15px 40px;
 }
+
+.glyphicon-triangle-top, .glyphicon-ok{
+    color: green;
+    font-size:x-large;
+    text-align:center;
+}
+
+.glyphicon-triangle-bottom{
+    color:red;
+    font-size:x-large;
+    text-align:center;
+}

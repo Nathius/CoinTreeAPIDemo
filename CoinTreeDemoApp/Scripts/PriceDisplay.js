@@ -69,7 +69,14 @@ function updatePrice(cookieName, newPrice, oldDisplayElement, newDisplayElement,
     newDisplayElement.innerHTML = newPrice;
 
     //calculate and display the movement in ask price
-    movementDisplayElement.innerHTML = getPriceMovement(oldPrice, newPrice);
+    var movement = getPriceMovement(oldPrice, newPrice);
+    movementDisplayElement.children[0].innerHTML = movement;
+    if (movement > 0){
+        movementDisplayElement.children[1].className = 'glyphicon glyphicon-triangle-top';
+    }
+    else {
+        movementDisplayElement.children[1].className = 'glyphicon glyphicon-triangle-bottom';
+    }
 
     //watchDisplayElement
     var watchPrice = document.getElementById("currentWatchPrice").innerHTML;
@@ -81,11 +88,13 @@ function updatePrice(cookieName, newPrice, oldDisplayElement, newDisplayElement,
         if(newPrice > watchPrice)
         {
             //update the watch display element
-            watchDisplayElement.innerHTML = 'BUY!?';
+            watchDisplayElement.children[0].innerHTML = 'TRUE';
+            watchDisplayElement.children[1].className = 'glyphicon glyphicon-ok';
         }
         else {
             //clear the watch display element
-            watchDisplayElement.innerHTML = '';
+            watchDisplayElement.children[0].innerHTML = '';
+            watchDisplayElement.children[1].className = '';
         }
     }
 }

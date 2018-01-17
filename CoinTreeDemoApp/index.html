@@ -4,6 +4,9 @@
     <title>CoinTree API demo app</title>
 	<meta charset="utf-8" />
 
+    <!--Include bootstrap for icons-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <!--Include jquery for ajax requests-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -17,7 +20,7 @@
 
 </head>
 <body>
-
+    <img alt="CoinTree" height="45" src="https://www.cointree.com.au/Content/Home/HeaderLogo.png">
     <h1>CoinTree API demo app</h1>
     <p>Basic application that reads data from the public CoinTree price API     <br />
     CoinTree API accessable from cointree.com.au    <br />
@@ -26,8 +29,9 @@
     Price is updated automatically every 30 seconds</p>
     <p><a href="./swagger">Swagger Documentation</a></p>
     
-    <p></p>
+    <p><br /><br /></p> <!--spacing-->
 
+    <p>Enter a watch price, when the current ask or bid price exceeds the given watch price you will be 'informed'.</p>
     <p>Watch price: 
     <input type="number" id="watchPriceInput"/> 
     <button onclick="setWatchPrice()">Set</button> <br />
@@ -43,7 +47,7 @@
             <th>Price</th>
             <th>Previous</th>
             <th>Current</th>
-            <th>Movement</th>
+            <th>Movement (%)</th>
             <th>Exceeds Watch price</th>
         </tr>
         <!--ask price row-->
@@ -51,16 +55,27 @@
             <td>Ask</td>
             <td id="previousAskPrice">Previous</td>
             <td id="currentAskPrice">Current</td>
-            <td id="askMovement">Movement</td>
-            <td id="askWatchFlag"></td>
+            <td id="askMovement">
+                <span name="value" >movement</span> 
+                <span name="icon"></span></td>
+            <td id="askWatchFlag">
+                <span name="value"></span>
+                <span name="icon"></span>
+            </td>
         </tr>
         <!--bid price row-->
         <tr>
             <td>Bid</td>
             <td id="previousBidPrice">Previous</td>
             <td id="currentBidPrice">Current</td>
-            <td id="bidMovement">Movement</td>
-            <td id="bidWatchFlag"></td>
+            <td id="bidMovement">
+                <span name="value">movement</span>
+                <span name="icon"></span>
+            </td>
+            <td id="bidWatchFlag">
+                <span name="value"></span>
+                <span name="icon"></span>
+            </td>
         </tr>
     </table>
 
