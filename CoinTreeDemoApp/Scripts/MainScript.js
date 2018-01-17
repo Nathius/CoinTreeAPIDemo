@@ -1,4 +1,14 @@
-﻿$(document).ready(function () {
+﻿var currencyFormatter;
+
+$(document).ready(function () {
+    //https://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-dollars-currency-string-in-javascript
+    // Create our number formatter.
+    currencyFormatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+    });
+
     //load in the previous watch price
     loadWatchPriceFromCookieStorage();
 
@@ -12,7 +22,7 @@
     //wait and refresh the prices every 30 seconds
     setInterval(function () {
         getPrice();
-    }, 3000);
+    }, 30000);
 });
 
 function loadPricesFromCookieStorage()
@@ -36,7 +46,7 @@ function loadWatchPriceFromCookieStorage()
     var watchPrice = getCookie('watchPrice');
     if (watchPrice && watchPrice != null && watchPrice != '' && watchPrice != 0) {
         var currentWatchPrice = document.getElementById("currentWatchPrice");
-        currentWatchPrice.innerHTML = watchPrice;
+        currentWatchPrice.innerHTML = numberToCurrency(watchPrice);
     }
 }
 
@@ -46,7 +56,7 @@ function setWatchPrice()
     var watchPriceInput = document.getElementById("watchPriceInput");
     var currentWatchPrice = document.getElementById("currentWatchPrice");
 
-    currentWatchPrice.innerHTML = watchPriceInput.value;
+    currentWatchPrice.innerHTML = numberToCurrency(watchPriceInput.value);
     setCookie('watchPrice', watchPriceInput.value, 7);
 
     //copy text to watch price value

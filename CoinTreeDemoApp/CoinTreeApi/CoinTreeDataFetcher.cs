@@ -32,14 +32,11 @@ namespace CoinTreeDemoApp.CoinTreeApi
             //parse string into object
             var rawData = JsonConvert.DeserializeObject<dynamic>(priceDataString);
             
-            //TEST TODO REMOVE add random number to ask and bid to see changes in front end
-            Random rnd = new Random();
-
             //parse object into PriceData object
             PriceData data = new PriceData()
             {
-                Ask = rawData.ask + rnd.Next(2, 1000),
-                Bid = rawData.bid + rnd.Next(2, 1000),
+                Ask = rawData.ask,
+                Bid = rawData.bid,
                 Spot = rawData.spot
             };
 

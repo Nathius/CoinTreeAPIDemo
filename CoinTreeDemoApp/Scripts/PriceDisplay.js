@@ -62,11 +62,11 @@ function updatePrice(cookieName, newPrice, oldDisplayElement, newDisplayElement,
     setCookie(cookieName, newPrice, 7);
     
     //copy old current price to previous price
-    var oldPrice = newDisplayElement.innerHTML;
-    oldDisplayElement.innerHTML = oldPrice;
+    var oldPrice = currencyToNumber(newDisplayElement.innerHTML);
+    oldDisplayElement.innerHTML = numberToCurrency(oldPrice);
 
     //display new current price
-    newDisplayElement.innerHTML = newPrice;
+    newDisplayElement.innerHTML = numberToCurrency(newPrice);
 
     //calculate and display the movement in ask price
     var movement = getPriceMovement(oldPrice, newPrice);
@@ -79,7 +79,7 @@ function updatePrice(cookieName, newPrice, oldDisplayElement, newDisplayElement,
     }
 
     //watchDisplayElement
-    var watchPrice = document.getElementById("currentWatchPrice").innerHTML;
+    var watchPrice = currencyToNumber(document.getElementById("currentWatchPrice").innerHTML);
 
     //if a valid watch price is provided
     if (watchPrice && watchPrice != null && watchPrice != '' && watchPrice != 0 && watchPrice > 0)
