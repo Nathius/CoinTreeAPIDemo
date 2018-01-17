@@ -37,45 +37,41 @@ function getPrice() {
 
 function updateAskPrice(newPrice)
 {
-    //store current ask price in cookie
-    setCookie('askPrice', newPrice, 7);
-
-    //update diaplay of ask price
-    var currentAskPrice = document.getElementById("currentAskPrice");
-    var previousAskPrice = document.getElementById("previousAskPrice");
-
-    //copy old current price to previous price
-    var oldPrice = currentAskPrice.innerHTML;
-    previousAskPrice.innerHTML = oldPrice;
-
-    //display new current price
-    currentAskPrice.innerHTML = newPrice;
-
-    //calculate and display the movement in ask price
-    var askMovement = document.getElementById("askMovement");
-    askMovement.innerHTML = getPriceMovement(oldPrice, newPrice);
-
-
+    updatePrice('askPrice',
+        newPrice,
+        document.getElementById("previousAskPrice"),
+        document.getElementById("currentAskPrice"),
+        document.getElementById("askMovement"),
+        document.getElementById("askWatchFlag")
+        );
 }
 
-function updateBidPrice(newPrice)
+function updateBidPrice(newPrice) {
+    updatePrice('bidPrice',
+        newPrice,
+        document.getElementById("previousBidPrice"),
+        document.getElementById("currentBidPrice"),
+        document.getElementById("bidMovement"),
+        document.getElementById("bidWatchFlag")
+        );
+}
+
+function updatePrice(cookieName, newPrice, oldDisplayElement, newDisplayElement, movementDisplayElement, watchDisplayElement)
 {
-    //store current bid price in cookie
-    setCookie('bidPrice', newPrice, 7);
-
-    var currentBidPrice = document.getElementById("currentBidPrice");
-    var previousBidPrice = document.getElementById("previousBidPrice");
-
+    //store current ask price in cookie
+    setCookie(cookieName, newPrice, 7);
+    
     //copy old current price to previous price
-    var oldPrice = currentBidPrice.innerHTML;
-    previousBidPrice.innerHTML = oldPrice;
+    var oldPrice = newDisplayElement.innerHTML;
+    oldDisplayElement.innerHTML = oldPrice;
 
     //display new current price
-    currentBidPrice.innerHTML = newPrice;
+    newDisplayElement.innerHTML = newPrice;
 
-    //calculate and display the movement in bid price
-    var bidMovement = document.getElementById("bidMovement");
-    bidMovement.innerHTML = getPriceMovement(oldPrice, newPrice);
+    //calculate and display the movement in ask price
+    movementDisplayElement.innerHTML = getPriceMovement(oldPrice, newPrice);
+
+    //watchDisplayElement
 }
 
 function getPriceMovement(oldPrice, newPrice)

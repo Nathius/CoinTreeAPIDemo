@@ -27,3 +27,15 @@ function loadPricesFromCookieStorage()
         updateBidPrice(oldBid);
     }
 }
+
+function setWatchPrice()
+{
+    //find watch price input
+    var watchPriceInput = document.getElementById("watchPriceInput");
+    var currentWatchPrice = document.getElementById("currentWatchPrice");
+
+    currentWatchPrice.innerHTML = watchPriceInput.value;
+
+
+    //copy text to watch price value
+}

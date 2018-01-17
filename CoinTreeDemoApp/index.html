@@ -25,6 +25,17 @@
     The previous price is also shown with an indication of price rise and fall. <br />
     Price is updated automatically every 30 seconds</p>
     <p><a href="./swagger">Swagger Documentation</a></p>
+    
+    <p></p>
+
+    <p>Watch price: 
+    <input type="number" id="watchPriceInput"/> 
+    <button onclick="setWatchPrice()">Set</button> <br />
+
+    <b>Currrently watching for :</b> 
+    <span id="currentWatchPrice"></span>
+    </p>
+
 
     <table class="priceGrid">
         <!--table headers-->
@@ -33,7 +44,7 @@
             <th>Previous</th>
             <th>Current</th>
             <th>Movement</th>
-            <th></th>
+            <th>Exceeds Watch price</th>
         </tr>
         <!--ask price row-->
         <tr>
@@ -41,7 +52,7 @@
             <td id="previousAskPrice">Previous</td>
             <td id="currentAskPrice">Current</td>
             <td id="askMovement">Movement</td>
-            <td></td>
+            <td id="askWatchFlag"></td>
         </tr>
         <!--bid price row-->
         <tr>
@@ -49,7 +60,7 @@
             <td id="previousBidPrice">Previous</td>
             <td id="currentBidPrice">Current</td>
             <td id="bidMovement">Movement</td>
-            <td></td>
+            <td id="bidWatchFlag"></td>
         </tr>
     </table>
 
