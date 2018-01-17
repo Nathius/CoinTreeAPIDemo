@@ -7,6 +7,8 @@
     <!--Include jquery for ajax requests-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="Styles/Style.css">
+
     <script src="Scripts/PriceDisplay.js"></script>
     <script src="Scripts/Utils.js"></script>
     <!--loaded last, contains document ready listener-->
@@ -24,33 +26,32 @@
     Price is updated automatically every 30 seconds</p>
     <p><a href="./swagger">Swagger Documentation</a></p>
 
-    <p>Current ask and bid price</p>
-    <p>
-        <b>Ask Price: </b>
-        <span id="currentAskPrice"></span>
-    </p>
-    <p>
-        <b>Movement: </b>
-        <span id="askMovement"></span>
-    </p>
-    <p>
-        <b>Bid Price: </b>
-        <span id="currentBidPrice"></span>
-    </p>
-    <p>
-        <b>Movement: </b>
-        <span id="bidMovement"></span>
-    </p>
-
-    <p>Previous ask and bid price</p>
-    <p>
-        <b>Ask Price: </b>
-        <span id="previousAskPrice"></span>
-    </p>
-    <p>
-        <b>Bid Price: </b>
-        <span id="previousBidPrice"></span>
-    </p>
+    <table class="priceGrid">
+        <!--table headers-->
+        <tr>
+            <th>Price</th>
+            <th>Previous</th>
+            <th>Current</th>
+            <th>Movement</th>
+            <th></th>
+        </tr>
+        <!--ask price row-->
+        <tr>
+            <td>Ask</td>
+            <td id="previousAskPrice">Previous</td>
+            <td id="currentAskPrice">Current</td>
+            <td id="askMovement">Movement</td>
+            <td></td>
+        </tr>
+        <!--bid price row-->
+        <tr>
+            <td>Bid</td>
+            <td id="previousBidPrice">Previous</td>
+            <td id="currentBidPrice">Current</td>
+            <td id="bidMovement">Movement</td>
+            <td></td>
+        </tr>
+    </table>
 
 </body>
 </html>

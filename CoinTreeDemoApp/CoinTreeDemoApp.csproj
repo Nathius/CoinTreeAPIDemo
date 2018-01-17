@@ -110,6 +110,7 @@
     <Content Include="Scripts\MainScript.js" />
     <Content Include="Scripts\PriceDisplay.js" />
     <Content Include="Scripts\Utils.js" />
+    <Content Include="Styles\Style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
