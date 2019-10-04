@@ -39,4 +39,7 @@ Which requires setting the project->properties->web->servers to local iis with t
 Alternativly you could update the url in the front end ajax call in scripts->PriceDisplay.js->getPrice() <br />
 </p>
 
+<p>
+New readme section
+</p>
 
