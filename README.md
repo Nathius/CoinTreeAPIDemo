@@ -40,6 +40,6 @@ Alternativly you could update the url in the front end ajax call in scripts->Pri
 </p>
 
 <p>
-New readme section, for testing purposes
+New readme section, for testing purposes, using pull requests
 </p>
 
